@@ -11,7 +11,7 @@ type User struct {
 	FirstName      *string            `json:"first_name" validate:"required,min=2,max=30"`
 	LastName       *string            `json:"last_name" validate:"required,min=2,max=30"`
 	Password       *string            `json:"password" validate:"required,min=6"`
-	Email          *string            `json:"email" validate:"email, required"`
+	Email          *string            `json:"email" validate:"email,required"`
 	Phone          *string            `json:"phone" validate:"required"`
 	Token          *string            `json:"token"`
 	RefreshToken   *string            `json:"refresh_token"`
@@ -57,6 +57,6 @@ type Order struct {
 }
 
 type Payment struct {
-	Digital bool
-	COD     bool //cash on delivery
+	Digital bool `json:"digital" bson:"digital"`
+	COD     bool `json:"cod" bson:"cod"` //cash on delivery
 }
